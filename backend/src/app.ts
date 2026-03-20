@@ -39,9 +39,6 @@ const limiter = rateLimit({
 app.use(limiter);
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
-
-// Better Auth catch-all
-app.all('/api/auth/*splat', toNodeHandler(auth));
 app.use(requestContextMiddleware);
 
 // Logging & Context
@@ -50,6 +47,9 @@ app.use(
     stream: { write: (message) => logger.info(message.trim()) },
   })
 );
+
+// Better Auth catch-all
+app.all('/api/auth/*splat', toNodeHandler(auth));
 
 // Request Parsing
 app.use(express.json({ limit: '10kb' }));

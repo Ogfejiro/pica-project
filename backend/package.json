@@ -4,6 +4,9 @@
   "description": "Production-ready Express API with TypeScript",
   "main": "dist/server.js",
   "type": "module",
+  "imports": {
+    "#lib/*": "./src/lib/*.js"
+  },
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "rimraf dist && tsc && tsc-alias",
@@ -23,9 +26,11 @@
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19",
+    "@types/ejs": "^3.1.5",
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
     "@types/node": "^25.5.0",
+    "@types/nodemailer": "^7.0.11",
     "@types/pg": "^8.18.0",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.57.0",
@@ -47,11 +52,13 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
+    "ejs": "^5.0.1",
     "express": "^5.2.1",
     "express-rate-limit": "^8.3.1",
     "helmet": "^8.1.0",
     "ioredis": "^5.10.0",
     "morgan": "^1.10.1",
+    "nodemailer": "^8.0.3",
     "pg": "^8.20.0",
     "winston": "^3.19.0",
     "zod": "^4.3.6"

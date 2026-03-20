@@ -1,14 +1,14 @@
 import RedisPkg from 'ioredis';
 const Redis = (RedisPkg as any).default || RedisPkg;
 
-import { env } from '../config/index.js';
 import { logger } from './logger.js';
 
 const redisConfig = {
-  host: env.REDIS_HOST,
-  port: env.REDIS_PORT,
-  password: env.REDIS_PASSWORD,
-  maxRetriesPerRequest: null, // Required for BullMQ
+  host: 'redis-12450.c341.af-south-1-1.ec2.cloud.redislabs.com',
+  port: 12450,
+  username: process.env.REDIS_USERNAME as string,
+  password: process.env.REDIS_PASSWORD as string,
+  maxRetriesPerRequest: null,
 };
 
 export const redisConnection = new Redis(redisConfig);
