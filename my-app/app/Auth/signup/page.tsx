@@ -49,6 +49,7 @@ export default function SignUpPage() {
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      setIsLoading(false);
       return;
     }
     // TODO: call your register API here
@@ -322,7 +323,9 @@ export default function SignUpPage() {
               {/* Submit button */}
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-[#017CA3] hover:bg-[#046f91] active:bg-[#017CA3] text-white font-semibold text-sm tracking-wide transition-colors duration-200"
+                className={`w-full py-3.5 rounded-xl bg-[#017CA3] hover:bg-[#046f91] active:bg-[#017CA3] text-white font-semibold text-sm tracking-wide transition-colors duration-200
+                  disabled:bg-[#046f91]`}
+                disabled={isLoading}
               >
                 {isLoading ? "Creating account..." : "Create my account"}
               </button>

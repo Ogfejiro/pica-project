@@ -96,7 +96,7 @@ export default function DashboardPage() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           {/* Replace with your logo */}
-          <img src="./images/logo.png"></img>
+          <img src="./logo-white.svg"></img>
         </div>
 
         {/* Right controls */}
